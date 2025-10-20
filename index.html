@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mis Certificaciones</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #f0f4f8);
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #0d47a1;
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .grid-certificados {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .certificado {
+      background: #ffffff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .certificado:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
+
+    .certificado img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      background: #e0e0e0;
+    }
+
+    .certificado .info {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .certificado .info h2 {
+      font-size: 1.1rem;
+      color: #0d47a1;
+      margin: 0 0 10px 0;
+    }
+
+    .certificado .info p {
+      color: #555;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    footer {
+      margin-top: 30px;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* ===== Modal ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    .cerrar {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .cerrar:hover {
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1> Certificaciones</h1>
+
+  <div class="grid-certificados">
+    <div class="certificado">
+      <img src="Angular-Certificado.jpg" alt="Certificado 1" onclick="abrirModal(this)">
+      <div class="info">
+        <h2>Universidad Angular de cero a experto</h2>
+        <p>Udemy</p>
+      </div>
+    </div>
+    <div class="certificado">
+      <img src="c-Certificado.jpg" alt="Certificado 2" onclick="abrirModal(this)">
+      <div class="info">
+        <h2>C</h2>
+        <p>Udemy</p>
+      </div>
+    </div>
+    <div class="certificado">
+      <img src="Docker-certificado.png" alt="Certificado 3" onclick="abrirModal(this)">
+      <div class="info">
+        <h2>Docker</h2>
+        <p>Platzi</p>
+      </div>
+    </div>
+    <div class="certificado">
+      <img src="excel-certificado.jpg" alt="Certificado 4" onclick="abrirModal(this)">
+      <div class="info">
+        <h2>Excel</h2>
+        <p>Udemy</p>
+      </div>
+    </div>
+    <div class="certificado">
+      <img src="JavaScript-Certificado.jpg" alt="Certificado 5" onclick="abrirModal(this)">
+      <div class="info">
+        <h2>JavaScript-Certificado</h2>
+        <p>Udemy</p>
+      </div>
+    </div>
+    <div class="certificado">
+      <img src="redes-cv.png" alt="Certificado 6" onclick="abrirModal(this)">
+      <div class="info">
+        <h2>Redes de internet</h2>
+        <p>Platzi</p>
+      </div>
+    </div>
+    <div class="certificado">
+      <img src="TCPIP.jpg" alt="Certificado 7" onclick="abrirModal(this)">
+      <div class="info">
+        <h2>TCPIP</h2>
+        <p>Udemy</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <span class="cerrar" onclick="cerrarModal()">&times;</span>
+    <img id="modal-img" src="" alt="Imagen ampliada">
+  </div>
+
+  <footer>
+     Certificaciones
+  </footer>
+
+  <script>
+    function abrirModal(img) {
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modal-img');
+      modalImg.src = img.src;
+      modal.style.display = 'flex';
+    }
+
+    function cerrarModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>s
